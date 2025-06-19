@@ -1,0 +1,5 @@
+-- link: https://www.hackerrank.com/challenges/revising-the-select-query-2/problem
+-- Name of all American cities, populations > 120000 and countrycode USA 
+SELECT name
+FROM city
+WHERE population > 120000 and countrycode = 'USA';
