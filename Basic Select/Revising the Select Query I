@@ -1,0 +1,6 @@
+-- link: https://www.hackerrank.com/challenges/revising-the-select-query/problem?isFullScreen=true
+-- All American city, Countrycode = Usa
+-- Populations > 100000
+Select * 
+From City
+Where countrycode = 'USA' AND population > 100000;
