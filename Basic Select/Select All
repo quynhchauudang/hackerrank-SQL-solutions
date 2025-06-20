@@ -1,0 +1,4 @@
+/* Querry all columns for every row in City table
+*/
+SELECT *
+FROM City
