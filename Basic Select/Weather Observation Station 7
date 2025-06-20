@@ -1,0 +1,6 @@
+/*
+ending with vowels (a, e, i, o, u) from STATION. Your result cannot contain duplicates.
+*/
+SELECT DISTINCT City
+FROM Station
+WHERE RIGHT(City,1) IN ('e','a','i','o','u');
