@@ -1,0 +1,13 @@
+/*
+cannot duplicate 
+starting with vowels
+*/
+--option 1
+SELECT DISTINCT City 
+FROM Station
+WHERE City LIKE 'a%' OR City LIKE 'e%' OR City LIKE 'u%' OR City LIKE 'o%' OR City LIKE 'i%';
+
+--option 2
+SELECT DISTINCT City 
+FROM Station
+WHERE LEFT(City,1) IN ('e','a','i','o','u');
