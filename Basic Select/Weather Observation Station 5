@@ -1,0 +1,14 @@
+/*
+shortest name and longest name -> use lenghth
+and their respective lengths (number of characters).
+If more than one, return the one that comes first alphabetically.
+*/
+(SELECT City, length(City) AS length
+    FROM Station
+    ORDER BY length, city
+    LIMIT 1)
+UNION ALL 
+(SELECT City, length(City) AS length
+    FROM Station
+    ORDER BY length DESC
+    LIMIT 1)
