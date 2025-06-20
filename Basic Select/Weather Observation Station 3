@@ -1,0 +1,8 @@
+/*
+even ID number -> % 2 = 0 -> divisible by 2
+exclude duplicates -> Distinct
+*/
+
+SELECT DISTINCT city
+FROM station 
+WHERE ID % 2 = 0;
