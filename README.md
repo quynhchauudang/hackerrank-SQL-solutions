@@ -1,2 +1,1 @@
-# hackerrank-SQL-solutions
-DA project porfolio
+DA project portfolio
