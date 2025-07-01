@@ -1,0 +1,25 @@
+/* Write a query to print all prime numbers ≤ 1000.
+Display them in one single row, separated by ampersands (&).
+Example output (for primes < 10):
+2&3&5&7 */
+-- tạo bảng chứa 2 tới 1000
+    WITH RECURSIVE Numbers AS (
+        SELECT 2 AS L 
+        UNION
+        SELECT L + 1
+        FROM Numbers
+        WHERE L < 1000
+    )
+-- Với mỗi số L, truy vấn kiểm tra xem có số nào nhỏ hơn L mà chia hết L không
+-- Nếu có → L không phải số nguyên tố
+-- Nếu không có → L là số nguyên tố
+-- NOT EXISTS (...) giữ lại các số nguyên tố
+
+
+    SELECT GROUP_CONCAT(L SEPARATOR '&') AS PrimeNumbers
+    FROM Numbers
+    WHERE NOT EXISTS (
+      SELECT 1
+      FROM Numbers AS N2
+      WHERE N2.L > 1 AND N2.L < Numbers.L AND Numbers.L % N2.L = 0
+     ) AND L <= 1000;
