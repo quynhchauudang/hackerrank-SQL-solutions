@@ -1,0 +1,15 @@
+/*
+Equilateral: A = B = C
+Isosceles: A = B OR A = C OR B = C
+Not A Triangle: A + B <= C OR A + C <= B OR B + C <= A
+Scalene: else
+*/
+
+SELECT 
+    Case
+        When A + B <= C OR A + C <= B OR B + C <= A then 'Not A Triangle'
+        When A = B AND B = C then 'Equilateral'
+        When A = B OR A = C OR B = C then 'Isosceles'
+        Else 'Scalene'
+    END
+FROM Triangles;
