@@ -1,0 +1,7 @@
+-- Euclidean Distance Formula d(P, Q) = √((x₂ - x₁)² + (y₂ - y₁)²). 
+-- SQRT used to calculate the square root of a numeric value
+-- POW used to raise a number to a specified power or exponent
+
+SELECT ROUND(SQRT(POW(MAX(LAT_N) - MIN(LAT_N), 2) + POW(MAX(LONG_W) - MIN(LONG_W), 2)
+  ), 4) AS distance
+FROM STATION;
