@@ -1,0 +1,27 @@
+
+
+-- Problem: Median Latitude
+-- Source: https://www.hackerrank.com/challenges/weather-observation-station-26/problem
+-- Description:
+--   A median is defined as a number separating the higher half of a dataset from the lower half.
+--   Query the median of the Northern Latitudes (LAT_N) from the STATION table.
+--   Round your result to 4 decimal places.
+
+-- This approach uses a CTE with ROW_NUMBER to rank all records by LAT_N
+-- and calculates the median based on whether the total number of records is odd or even.
+
+WITH Ordered AS (
+  SELECT 
+    LAT_N,
+    ROW_NUMBER() OVER (ORDER BY LAT_N) AS rn,
+    COUNT(*) OVER () AS total
+  FROM STATION
+),
+Middle AS (
+  SELECT LAT_N
+  FROM Ordered
+  WHERE rn = FLOOR((total + 1)/2)
+     OR rn = FLOOR((total + 2)/2)
+)
+SELECT ROUND(AVG(LAT_N), 4) AS median
+FROM Middle;
